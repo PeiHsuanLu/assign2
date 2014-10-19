@@ -1,4 +1,5 @@
 // global variables
+int currentTime = 0;
 float frogX, frogY, frogW, frogH, frogInitX, frogInitY;
 float leftCar1X, leftCar1Y, leftCar1W, leftCar1H;//car1
 float leftCar2X, leftCar2Y, leftCar2W, leftCar2H;//car2
@@ -77,10 +78,12 @@ void draw(){
         text("Press Enter", width/3, height/2);    
         break;
     case FROG_DIE:
-        delay(1000);
+        
+        if(millis()-currentTime >= 1000){
         frogX=frogInitX;
         frogY=frogInitY;
         gameState = GAME_RUN;
+        }
         break;
     case GAME_RUN:
         background(10,110,16);
@@ -148,10 +151,12 @@ void draw(){
          float C=dist(frogCX, frogCY, leftCarC1X, leftCarC1Y);
          
          if(C < frogW/2+leftCar1W/2){
+            currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
           }else if(C < frogH/2+leftCar1H/2){
+            currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
@@ -171,10 +176,12 @@ void draw(){
          float D=dist(frogCX, frogCY, leftCarC2X, leftCarC2Y);
          
          if(D < frogW/2+leftCar1W/2){
+           currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
           }else if(D < frogH/2+leftCar1H/2){
+            currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
@@ -194,10 +201,12 @@ void draw(){
          float E=dist(frogCX, frogCY, rightCarC1X, rightCarC1Y);
          
          if(E < frogW/2+rightCar1W/2){
+           currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
           }else if(E < frogH/2+rightCar1H/2){
+            currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
@@ -217,10 +226,12 @@ void draw(){
          float F=dist(frogCX, frogCY, rightCarC2X, rightCarC2Y);
          
          if(F < frogW/2+rightCar2W/2){
+           currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
           }else if(F < frogH/2+rightCar2H/2){
+            currentTime = millis();
             image(imgDeadFrog, frogX, frogY); 
              life--;
              gameState = FROG_DIE;
