@@ -260,7 +260,7 @@ void draw(){
   }
 }
 void keyPressed() {
-    if (key == CODED /*still needs something*/) {
+    if (key == CODED && gameState == GAME_RUN) {
       
       if (keyCode == UP){
         frogY -= 32;
@@ -285,7 +285,7 @@ void keyPressed() {
       }
     }
 
-    if(key==ENTER /*still needs something*/){
+    if(key==ENTER && (gameState == GAME_START || gameState == GAME_LOSE || gameState == GAME_WIN)){
       if(gameState != GAME_RUN){
       gameState = GAME_RUN;
       life=3;
